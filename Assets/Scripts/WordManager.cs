@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WordManager : MonoBehaviour {
 
@@ -9,9 +10,8 @@ public class WordManager : MonoBehaviour {
     public WordSpawner wordSpawner;
 
     private bool hasActiveWord;
-    private Word activeWord;
-
-    
+    public Word activeWord;
+    public bool enter = true;
 
     public void AddWord()
     {
@@ -48,5 +48,11 @@ public class WordManager : MonoBehaviour {
             hasActiveWord = false;
             words.Remove(activeWord);
         }
+
+    }
+
+    public void LoadByIndex()
+    {
+        SceneManager.LoadScene(1);//
     }
 }

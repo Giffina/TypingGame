@@ -6,13 +6,14 @@ using UnityEngine;
 public class Word {
 
     public string word;
+    internal object position;
     private int typeIndex;
 
     private WordDisplay display;
 
     public Word(string _word, WordDisplay _display)
     {
-       word = _word;
+        word = _word;
         typeIndex = 0;
         display = _display;
         display.SetWord(word);
@@ -35,6 +36,8 @@ public class Word {
         if(wordTyped)
         {
             display.RemoveWord();
+            //score++;
+            //play audio;
         }
         return wordTyped;
     }
