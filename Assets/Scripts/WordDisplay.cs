@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class WordDisplay : MonoBehaviour {
 
@@ -22,10 +23,21 @@ public class WordDisplay : MonoBehaviour {
     public void RemoveWord()
     {
         Destroy(gameObject);
-    }
 
+    }
+    public void LoadByIndex()
+    {
+        SceneManager.LoadScene(1);//
+    }
     private void Update()
     {
         transform.Translate(0f, -fallSpeed * Time.deltaTime, 0f);
+        if (transform.position.y < -6.5)
+        {
+
+            Destroy(gameObject);
+            LoadByIndex();
+        }
     }
+
 }

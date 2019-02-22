@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class WordManager : MonoBehaviour {
 
     public List<Word> words;
 
     public WordSpawner wordSpawner;
-
+    
     private bool hasActiveWord;
     public Word activeWord;
-    public bool enter = true;
+   // public bool enter = true;
 
     public void AddWord()
     {
@@ -47,12 +48,13 @@ public class WordManager : MonoBehaviour {
         {
             hasActiveWord = false;
             words.Remove(activeWord);
+
+            ScoreScirpt.scoreValue += 1;
+
         }
 
+
     }
 
-    public void LoadByIndex()
-    {
-        SceneManager.LoadScene(1);//
-    }
+
 }
