@@ -12,7 +12,7 @@ public class WordManager : MonoBehaviour {
     
     private bool hasActiveWord;
     public Word activeWord;
-   // public bool enter = true;
+    public AudioSource Nice;
 
     public void AddWord()
     {
@@ -21,7 +21,10 @@ public class WordManager : MonoBehaviour {
 
         words.Add(word);
     }
-
+    public void PlayNice()
+    {
+        Nice.Play();
+    }
     public void TypeLetter(char letter)
     {
         if(hasActiveWord)
@@ -48,13 +51,15 @@ public class WordManager : MonoBehaviour {
         {
             hasActiveWord = false;
             words.Remove(activeWord);
-
             ScoreScirpt.scoreValue += 1;
+            PlayNice();
 
         }
 
 
     }
+
+
 
 
 }
